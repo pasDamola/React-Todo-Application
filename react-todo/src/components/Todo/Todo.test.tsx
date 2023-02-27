@@ -15,4 +15,17 @@ describe("Todo", () => {
 
     expect(screen.getByText("buy some milk")).toBeInTheDocument();
   });
+
+  it("toggles active and done of an item", () => {
+    render(<Todo />);
+
+    const item = screen.getByText("buy car");
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    act(() => {
+      userEvent.click(item);
+    });
+
+    expect(item).toHaveStyle(`text-decoration: line-through`);
+  });
 });

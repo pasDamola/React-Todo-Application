@@ -17,6 +17,8 @@ function AddTodo({ handleAddTodo }: AddTodoProps) {
     if (e.key === "Enter") {
       const todoItem = { id: uuid(), item: todoInput, done: false };
       handleAddTodo(todoItem);
+
+      setTodoInput("");
     }
   };
   return (
@@ -24,6 +26,7 @@ function AddTodo({ handleAddTodo }: AddTodoProps) {
       <input
         type="text"
         data-testid="todo-input"
+        value={todoInput}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />

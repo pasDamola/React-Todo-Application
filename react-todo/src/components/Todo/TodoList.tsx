@@ -2,13 +2,25 @@ import { TodoProps } from "./index";
 
 type TodoListProps = {
   todos: TodoProps[];
+  toggleCompleted: (id: string) => void;
 };
 
-function TodoList({ todos }: TodoListProps) {
+function TodoList({ todos, toggleCompleted }: TodoListProps) {
+  const handleClick = (id: string) => {
+    toggleCompleted(id);
+  };
   return (
     <ul>
       {todos.map((todo) => {
-        return <li key={todo.id}>{todo.item}</li>;
+        return (
+          <li
+            key={todo.id}
+            onClick={() => handleClick(todo.id)}
+            style={todo.done ? { textDecoration: "line-through" } : {}}
+          >
+            {todo.item}
+          </li>
+        );
       })}
     </ul>
   );

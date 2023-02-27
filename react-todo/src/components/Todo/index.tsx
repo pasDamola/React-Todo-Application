@@ -22,7 +22,7 @@ const dummyTodos: TodoProps[] = [
   {
     id: "57847847854",
     item: "buy sugar",
-    done: true,
+    done: false,
   },
 ];
 
@@ -33,10 +33,25 @@ function Todo() {
     setTodos([...todos, todo]);
   };
 
+  const handleToggle = (id: string) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        // Create a *new* object with changes
+        console.log(todo.done);
+        return { ...todo, done: !todo.done };
+      } else {
+        // No changes
+        return todo;
+      }
+    });
+    console.log(updatedTodos);
+    setTodos(updatedTodos);
+  };
+
   return (
     <>
       <AddTodo handleAddTodo={handleAddTodo} />
-      <TodoList todos={todos} />
+      <TodoList toggleCompleted={handleToggle} todos={todos} />
     </>
   );
 }
