@@ -16,7 +16,9 @@ function TodoList({ todos, toggleCompleted }: TodoListProps) {
           <li
             key={todo.id}
             onClick={() => handleClick(todo.id)}
-            style={todo.done ? { textDecoration: "line-through" } : {}}
+            style={
+              todo.done ? { textDecoration: "line-through", color: "#666" } : {}
+            }
           >
             {todo.item}
           </li>

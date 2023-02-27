@@ -37,14 +37,12 @@ function Todo() {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
         // Create a *new* object with changes
-        console.log(todo.done);
         return { ...todo, done: !todo.done };
       } else {
         // No changes
         return todo;
       }
     });
-    console.log(updatedTodos);
     setTodos(updatedTodos);
   };
 
