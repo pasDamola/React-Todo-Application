@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Todo from "./Todo";
+import AddTodo from "./AddTodo";
 
-describe("Todo", () => {
+describe("AddTodo", () => {
   it("adds a todo to the list", () => {
-    render(<Todo />);
+    render(<AddTodo />);
 
     const input = screen.getByTestId("todo-input");
     userEvent.type(input, "buy some milk");
