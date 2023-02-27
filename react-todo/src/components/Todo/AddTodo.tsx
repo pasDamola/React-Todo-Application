@@ -1,6 +1,12 @@
 import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { v4 as uuid } from "uuid";
+import { TodoProps } from ".";
 
-function AddTodo() {
+type AddTodoProps = {
+  handleAddTodo: (todo: TodoProps) => void;
+};
+
+function AddTodo({ handleAddTodo }: AddTodoProps) {
   const [todoInput, setTodoInput] = useState("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -9,6 +15,8 @@ function AddTodo() {
 
   const handleKeyDown = (e: KeyboardEvent<HTMLElement>) => {
     if (e.key === "Enter") {
+      const todoItem = { id: uuid(), item: todoInput, done: false };
+      handleAddTodo(todoItem);
     }
   };
   return (

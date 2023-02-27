@@ -1,9 +1,9 @@
 import React from "react";
-import AddTodo from "./components/Todo/AddTodo";
+import Todo from "./components/Todo";
 function App() {
   return (
     <div>
-      <AddTodo />
+      <Todo />
     </div>
   );
 }
